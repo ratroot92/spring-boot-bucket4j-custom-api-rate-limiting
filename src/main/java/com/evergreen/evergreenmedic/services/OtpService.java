@@ -61,8 +61,8 @@ public class OtpService {
 
     public boolean sendEmailOtp(SenOtpReqDto senOtpReqDto) throws BadRequestException {
         String email = senOtpReqDto.getEmail();
-        if (!userRepository.existsByEmail(email)) {
-            throw new BadRequestException("User does not exists.");
+        if (userRepository.existsByEmail(email)) {
+            throw new BadRequestException("Email already exists.");
         }
 
         // Check for the last OTP expiration

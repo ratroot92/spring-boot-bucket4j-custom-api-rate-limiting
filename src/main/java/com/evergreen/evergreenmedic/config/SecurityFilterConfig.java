@@ -29,7 +29,7 @@ public class SecurityFilterConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
 //                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .requestMatchers("/api/v1/auth/login", "/api/v1/auth/register", "/api/v1/otp", "/uploads/**")
+                .requestMatchers("/api/v1/auth/login", "/api/v1/auth/register", "/api/v1/otp/**", "/uploads/**")
                 .permitAll().anyRequest().authenticated()
                 .and()
                 .csrf().disable();
